@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import type { AppState, BinaryFiles, OrderedExcalidrawElement } from '#build/types/nuxt-excalidraw'
+
 const collaborating = ref(false)
 function changeCollaborating() {
   collaborating.value = !collaborating.value
 }
 
-function onChangeEvent(elements, appState, files) {
+function onChangeEvent(elements: readonly OrderedExcalidrawElement[], appState: AppState, files: BinaryFiles) {
   console.log(elements, appState, files)
 }
 </script>

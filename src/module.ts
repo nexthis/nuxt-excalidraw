@@ -1,4 +1,4 @@
-import { defineNuxtModule, createResolver, addComponent } from '@nuxt/kit'
+import { defineNuxtModule, createResolver, addComponent, addTemplate } from '@nuxt/kit'
 
 // Module options TypeScript interface definition
 export interface ModuleOptions {
@@ -14,8 +14,22 @@ export default defineNuxtModule<ModuleOptions>({
   defaults: {
     css: true,
   },
-  setup(_options, _nuxt) {
+  setup(_options, nuxt) {
     const resolver = createResolver(import.meta.url)
+
+    nuxt.hook('prepare:types', ({ references }) => {
+      references.push({
+        path: resolver.resolve(nuxt.options.buildDir, 'types/nuxt-excalidraw.d.ts'),
+      })
+    })
+
+    addTemplate({
+      filename: 'types/nuxt-excalidraw.d.ts',
+      getContents: () => `
+        export type * from '@excalidraw/excalidraw/types'
+        export type * from '@excalidraw/excalidraw/element/types'
+        `,
+    })
 
     addComponent({
       name: 'ExcalidrawWhiteboard',
