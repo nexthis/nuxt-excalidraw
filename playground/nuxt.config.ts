@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  modules: ['@nuxt/excalidraw'],
+  modules: ['nuxt-excalidraw-whiteboard'],
   devtools: { enabled: true },
   compatibilityDate: 'latest',
 })
