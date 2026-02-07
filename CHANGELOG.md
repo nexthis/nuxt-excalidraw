@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.3.0
+
+[compare changes](https://github.com/nexthis/nuxt-excalidraw/compare/v1.2.0...v1.3.0)
+
+### 🚀 Enhancements
+
+- Skip test ([2ead99b](https://github.com/nexthis/nuxt-excalidraw/commit/2ead99b))
+
+### ❤️ Contributors
+
+- Nexthis ([@nexthis](https://github.com/nexthis))
+
 ## v1.2.0
 
 
