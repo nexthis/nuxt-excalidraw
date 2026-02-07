@@ -1,0 +1,7 @@
+{
+  "eslint.useFlatConfig": true,
+  "cSpell.words": [
+    "Excalidraw"
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
