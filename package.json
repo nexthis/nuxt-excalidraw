@@ -1,8 +1,11 @@
 {
-  "name": "@nuxt/excalidraw",
+  "name": "nuxt-excalidraw-whiteboard",
   "version": "1.0.0",
-  "description": "My new Nuxt module",
-  "repository": "your-org/my-module",
+  "description": "Nuxt module for integrating Excalidraw - a virtual collaborative whiteboard tool",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nexthis/nuxt-excalidraw"
+  },
   "license": "MIT",
   "type": "module",
   "exports": {

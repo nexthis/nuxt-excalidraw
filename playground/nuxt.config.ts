@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  modules: ['excalidraw'],
+  modules: ['@nuxt/excalidraw'],
   devtools: { enabled: true },
   compatibilityDate: 'latest',
 })

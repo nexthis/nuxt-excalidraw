@@ -3,7 +3,7 @@ import '@excalidraw/excalidraw/index.css'
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { Excalidraw } from '@excalidraw/excalidraw'
-import { onMounted, onBeforeUnmount, useTemplateRef, nextTick } from 'vue'
+import { onMounted, onBeforeUnmount, useTemplateRef, nextTick, watch } from 'vue'
 import type { ExcalidrawProps } from '@excalidraw/excalidraw/types'
 import type { Root } from 'react-dom/client'
 
@@ -12,21 +12,29 @@ const props = defineProps<ExcalidrawProps>()
 const excalidrawRef = useTemplateRef('excalidrawRef')
 let root: Root | null = null
 
+const renderReactComponent = () => {
+  if (!root) return
+
+  root.render(
+    React.createElement(
+      React.Fragment,
+      null,
+      React.createElement(Excalidraw, { ...props }),
+    ),
+  )
+}
+
 onMounted(async () => {
   await nextTick()
   if (!excalidrawRef.value) return
 
-  const App = () => {
-    return React.createElement(
-      React.Fragment,
-      null,
-      React.createElement(Excalidraw, props),
-    )
-  }
-
   root = createRoot(excalidrawRef.value)
-  root.render(React.createElement(App))
+  renderReactComponent()
 })
+
+watch(() => props, () => {
+  renderReactComponent()
+}, { deep: true })
 
 onBeforeUnmount(() => {
   if (root) {
