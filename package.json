@@ -1,6 +1,6 @@
 {
   "name": "nuxt-excalidraw-whiteboard",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Nuxt module for integrating Excalidraw - a virtual collaborative whiteboard tool",
   "repository": {
     "type": "git",
